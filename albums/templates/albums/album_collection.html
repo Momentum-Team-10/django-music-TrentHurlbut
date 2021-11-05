@@ -1,13 +1,42 @@
-{% extends 'albums/base.html' %} {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>l
+{% extends 'base.html' %} {% load static %}
+{% block content %}
+  <div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'add_album' %}">Add an Album</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <div class="container">
+      <div class="column">
+        <h3>Digital</h3>
+        {% for album in albums %}
+        {% if album.medium == 'digital' %}
+        <div>
+          {% if album.album_art_url %}
+          <img src="{{ album.album_art_url }}" alt="Album Art">
+          {% endif %}
+          <p>Album Title: {{album.title}}</p>
+          <p>Artist:  {{album.artist}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="column">
+        <h3>Physical</h3>
+        {% for album in albums %}
+        {% if album.medium == 'physical' %}
+        <div>
+          {% if album.album_art_url %}
+          <img src="{{ album.album_art_url }}" alt="Album Art">
+          {% endif %}
+          <p>Album Title: {{album.title}}</p>
+          <p>Artist:  {{album.artist}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

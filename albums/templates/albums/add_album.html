@@ -1,4 +1,6 @@
-{% extends 'albums/base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %}
+
+{% block content %}
 <h2>New Album</h2>
 <form method="POST" class="post-form">
     {% csrf_token %} {{ form.as_p }}
