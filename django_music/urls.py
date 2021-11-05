@@ -19,5 +19,6 @@ from albums import views
 
 urlpatterns = [
     path('', views.post_collection, name='post_collection'),
+    path('album/add_album', views.add_album, name='add_album'),
     path('admin/', admin.site.urls),
 ]
