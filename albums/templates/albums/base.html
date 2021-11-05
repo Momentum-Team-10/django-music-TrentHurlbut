@@ -25,9 +25,31 @@
     <div class="container">
       <div class="row">
         <h3>Digital</h3>
+        {% for album in albums %}
+        {% if album.medium == 'digital' %}
+        <div>
+          {% if album.album_art_url %}
+          <img src="{{ album.album_art_url }}" alt="Album Art">
+          {% endif %}
+          <p>Album Title: {{album.title}}</p>
+          <p>Artist:  {{album.artist}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
       </div>
       <div class="row">
         <h3>Physical</h3>
+        {% for album in albums %}
+        {% if album.medium == 'physical' %}
+        <div>
+          {% if album.album_art_url %}
+          <img src="{{ album.album_art_url }}" alt="Album Art">
+          {% endif %}
+          <p>Album Title: {{album.title}}</p>
+          <p>Artist:  {{album.artist}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
