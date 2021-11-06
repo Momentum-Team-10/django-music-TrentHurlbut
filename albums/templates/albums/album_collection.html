@@ -17,7 +17,7 @@
           {% if album.album_art_url %}
           <img src="{{ album.album_art_url }}" alt="Album Art">
           {% endif %}
-          <p>Album Title: {{album.title}}</p>
+          <p><a href="{% url 'view_album' pk=album.pk %}"> Title: {{album.title}} </a></p>
           <p>Artist:  {{album.artist}}</p>
         </div>
         {% endif %}
@@ -31,7 +31,7 @@
           {% if album.album_art_url %}
           <img src="{{ album.album_art_url }}" alt="Album Art">
           {% endif %}
-          <p>Album Title: {{album.title}}</p>
+          <p><a href="{% url 'view_album' pk=album.pk %}"> Title: {{album.title}} </a></p>
           <p>Artist:  {{album.artist}}</p>
         </div>
         {% endif %}
