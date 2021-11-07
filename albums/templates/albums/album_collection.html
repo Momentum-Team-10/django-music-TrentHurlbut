@@ -24,9 +24,9 @@
         {% endfor %}
       </div>
       <div class="column">
-        <h3>Physical</h3>
         {% for album in albums %}
         {% if album.medium == 'physical' %}
+        <h3>Physical</h3>
         <div>
           {% if album.album_art_url %}
           <img src="{{ album.album_art_url }}" alt="Album Art">

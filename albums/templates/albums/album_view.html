@@ -23,10 +23,7 @@
       {% csrf_token %}
       <button type="submit">Delete Album</button>
     </form>
-    <form name="edit_album_button" action="#" method="POST">
-      {% csrf_token %}
-      <button type="submit">Edit Album</button>
-    </form>
+    <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a>
   </div>
     {% block content %}
     {% endblock %}
