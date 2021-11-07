@@ -1,0 +1,17 @@
+.styles-body {
+  background-color: #A8C256;
+}
+
+h1 {
+  color: #A22522;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+.medium-collection{
+  display: flex;
+  flex-direction: row;
+}

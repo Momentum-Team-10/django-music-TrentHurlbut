@@ -8,35 +8,37 @@
     </ul>
   </div>
   <div>
-    <div class="container">
-      <div class="column">
-        <h3>Digital</h3>
+    <h3>Digital</h3>
+      <div class="container">
         {% for album in albums %}
         {% if album.medium == 'digital' %}
-        <div>
-          {% if album.album_art_url %}
-          <img src="{{ album.album_art_url }}" alt="Album Art">
-          {% endif %}
-          <p><a href="{% url 'view_album' pk=album.pk %}"> Title: {{album.title}} </a></p>
-          <p>Artist:  {{album.artist}}</p>
+        <div class="album-card">
+          <div>
+            {% if album.album_art_url %}
+            <img src="{{ album.album_art_url }}" alt="Album Art">
+            {% endif %}
+            <p><a href="{% url 'view_album' pk=album.pk %}"> Title: {{album.title}} </a></p>
+            <p>Artist:  {{album.artist}}</p>
+          </div>
         </div>
         {% endif %}
         {% endfor %}
       </div>
-      <div class="column">
+    <h3>Physical</h3>
+      <div class="container">
         {% for album in albums %}
         {% if album.medium == 'physical' %}
-        <h3>Physical</h3>
-        <div>
-          {% if album.album_art_url %}
-          <img src="{{ album.album_art_url }}" alt="Album Art">
-          {% endif %}
-          <p><a href="{% url 'view_album' pk=album.pk %}"> Title: {{album.title}} </a></p>
-          <p>Artist:  {{album.artist}}</p>
+        <div class="album-card">
+          <div>
+            {% if album.album_art_url %}
+            <img src="{{ album.album_art_url }}" alt="Album Art">
+            {% endif %}
+            <p><a href="{% url 'view_album' pk=album.pk %}"> Title: {{album.title}} </a></p>
+            <p>Artist:  {{album.artist}}</p>
+          </div>
         </div>
         {% endif %}
         {% endfor %}
       </div>
-    </div>
   </div>
 {% endblock %}
