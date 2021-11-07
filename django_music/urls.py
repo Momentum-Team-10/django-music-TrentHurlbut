@@ -21,6 +21,5 @@ urlpatterns = [
     path('', views.post_collection, name='post_collection'),
     path('album/add_album', views.add_album, name='add_album'),
     path('album/<int:pk>/', views.view_album, name='view_album'),
-    path('album/<int:pk>/', views.delete_album, name='delete_album'),
     path('admin/', admin.site.urls),
 ]

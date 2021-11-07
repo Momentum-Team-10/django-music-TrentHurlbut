@@ -24,12 +24,28 @@ def add_album(request):
 def view_album(request, pk):
   album = get_object_or_404(Album, pk = pk)
   if request.method == 'POST':
-    album.delete()
-    return redirect('post_collection')
+    if "edit_album_button" in request.POST:
+      form = AlbumForm(request.POST, instßance=album)
+      if form.is_valid():
+        form.save()
+        return redirect('view_album', pk=album.pk)
+    else:
+      album.delete()
+      return redirect('post_collection')
   else:
-    return render(request, "albums/album_view.html", {"album": album})
+    if "edit_album_button" in request.GET:
+      form = AlbumForm(instance=album)
+      return render(request, 'blog/post_edit.html', {'form': form})
+  return render(request, "albums/album_view.html", {"album": album})
 
-def delete_album(request, pk):
-  album = Album.objects.get(pk=pk)
-  album.delete()
-  return render(request, "", {"album": album})
+
+"""def edit_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == "POST":
+        form = AlbumForm(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect('view_album', pk=album.pk)
+    else:
+        form = AlbumForm(instance=album)
+    return render(request, 'blog/post_edit.html', {'form': form})"""
